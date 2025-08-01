@@ -1,0 +1,27 @@
+<h2 class="text-xl font-bold text-center mb-4">Lista de Tareas</h2>
+
+<table class="table-auto w-full border-collapse border border-gray-400">
+    <thead class="bg-gray-200">
+        <tr>
+            <th class="border border-gray-400 px-4 py-2">Título</th>
+            <th class="border border-gray-400 px-4 py-2">Descripción</th>
+            <th class="border border-gray-400 px-4 py-2">Fecha Vencimiento</th>
+            <th class="border border-gray-400 px-4 py-2">Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let tarea of tareas">
+            <td class="border border-gray-300 px-4 py-2">{{ tarea.titulo }}</td>
+            <td class="border border-gray-300 px-4 py-2">{{ tarea.descripcion }}</td>
+            <td class="border border-gray-300 px-4 py-2">{{ tarea.fechaVencimiento | date:'shortDate' }}</td>
+            <td class="border border-gray-300 px-4 py-2 space-x-2">
+                <button (click)="eliminarTarea(tarea.id)"
+                    class="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600">Eliminar</button>
+                <button [routerLink]="['/tareas', tarea.id]"
+                    class="bg-blue-500 text-white px-2 py-1 rounded hover:bg-blue-600">Editar</button>
+                    <button [routerLink]="['/detalle-tarea', tarea.id]"
+                    class="bg-blue-500 text-white px-2 py-1 rounded hover:bg-blue-600">Ver Detalles</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,77 @@
+<div class="bg-indigo-100 min-h-screen flex items-center justify-center dark:bg-gray-900">
+    <div class="w-full">
+        <h2 class="text-center text-indigo-700 font-bold text-3xl uppercase mb-10 dark:text-indigo-400">Crear Tarea</h2>
+        <div class="bg-white p-10 rounded-lg shadow-md md:w-3/4 mx-auto lg:w-1/2 dark:bg-gray-800">
+            <form (ngSubmit)="guardarTarea(formulario)" #formulario="ngForm">
+
+
+                <div class="mb-5">
+                    <label for="titulo" class="block mb-2 font-bold text-gray-700 dark:text-gray-300">Título</label>
+                    <input [(ngModel)]="titulo" type="text" id="titulo" name="titulo"
+                        placeholder="Escribe el título de la tarea"
+                        class="border border-gray-300 shadow-sm p-3 w-full rounded focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                </div>
+
+
+                <div class="mb-5">
+                    <label for="descripcion"
+                        class="block mb-2 font-bold text-gray-700 dark:text-gray-300">Descripción</label>
+                    <textarea [(ngModel)]="descripcion" id="descripcion" name="descripcion"
+                        placeholder="Detalles de la tarea"
+                        class="border border-gray-300 shadow-sm p-3 w-full rounded focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"></textarea>
+                </div>
+
+
+                <div class="mb-5">
+                    <label for="fechaVencimiento" class="block mb-2 font-bold text-gray-700 dark:text-gray-300">Fecha de
+                        vencimiento</label>
+                    <input [(ngModel)]="fechaVencimiento" type="date" id="fechaVencimiento" name="fechaVencimiento"
+                        class="border border-gray-300 shadow-sm p-3 w-full rounded focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                </div>
+
+
+
+
+
+                <div class="mb-5">
+                    <label for="etiquetas"
+                        class="block mb-2 font-bold text-gray-700 dark:text-gray-300">Etiquetas</label>
+                    <input [(ngModel)]="etiquetas" type="text" id="etiquetas" name="etiquetas"
+                        placeholder="Ej: urgente, oficina"
+                        class="border border-gray-300 shadow-sm p-3 w-full rounded focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                </div>
+
+
+                <div class="mb-5">
+                    <label for="responsable"
+                        class="block mb-2 font-bold text-gray-700 dark:text-gray-300">Responsable</label>
+                    <input [(ngModel)]="responsable" type="text" id="responsable" name="responsable"
+                        placeholder="Nombre del responsable"
+                        class="border border-gray-300 shadow-sm p-3 w-full rounded focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                </div>
+
+
+                <div class="mb-5">
+                    <label for="categoria"
+                        class="block mb-2 font-bold text-gray-700 dark:text-gray-300">Categoría</label>
+                    <input [(ngModel)]="categoria" type="text" id="categoria" name="categoria"
+                        placeholder="Ej: trabajo, personal, estudio"
+                        class="border border-gray-300 shadow-sm p-3 w-full rounded focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                </div>
+
+                <div class="mb-5">
+                    <label class="block mb-2 font-bold text-gray-700 dark:text-gray-300">¿Completada?</label>
+                    <input [(ngModel)]="completada" type="checkbox" id="completada" name="completada"
+                        class="mr-2 leading-tight">
+                    <span class="text-gray-700 dark:text-gray-300">Sí</span>
+                </div>
+
+
+                <button type="submit"
+                    class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 rounded-lg transition duration-300">
+                    Guardar tarea
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
