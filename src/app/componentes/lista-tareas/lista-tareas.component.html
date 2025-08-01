@@ -1,27 +1,55 @@
-<h2 class="text-xl font-bold text-center mb-4">Lista de Tareas</h2>
+<div class="bg-indigo-100 min-h-screen flex items-center justify-center dark:bg-gray-900 p-6">
+    <div class="w-full max-w-6xl">
+        <h2 class="text-center text-indigo-700 font-bold text-3xl uppercase mb-10 dark:text-indigo-400">Lista de Tareas
+        </h2>
 
-<table class="table-auto w-full border-collapse border border-gray-400">
-    <thead class="bg-gray-200">
-        <tr>
-            <th class="border border-gray-400 px-4 py-2">Título</th>
-            <th class="border border-gray-400 px-4 py-2">Descripción</th>
-            <th class="border border-gray-400 px-4 py-2">Fecha Vencimiento</th>
-            <th class="border border-gray-400 px-4 py-2">Acciones</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let tarea of tareas">
-            <td class="border border-gray-300 px-4 py-2">{{ tarea.titulo }}</td>
-            <td class="border border-gray-300 px-4 py-2">{{ tarea.descripcion }}</td>
-            <td class="border border-gray-300 px-4 py-2">{{ tarea.fechaVencimiento | date:'shortDate' }}</td>
-            <td class="border border-gray-300 px-4 py-2 space-x-2">
-                <button (click)="eliminarTarea(tarea.id)"
-                    class="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600">Eliminar</button>
-                <button [routerLink]="['/tareas', tarea.id]"
-                    class="bg-blue-500 text-white px-2 py-1 rounded hover:bg-blue-600">Editar</button>
-                    <button [routerLink]="['/detalle-tarea', tarea.id]"
-                    class="bg-blue-500 text-white px-2 py-1 rounded hover:bg-blue-600">Ver Detalles</button>
-            </td>
-        </tr>
-    </tbody>
-</table>
+        <div class="bg-white rounded-lg shadow-md overflow-x-auto dark:bg-gray-800">
+            <table class="min-w-full border-collapse border border-gray-300 dark:border-gray-700">
+                <thead class="bg-indigo-200 border-b border-indigo-400 dark:bg-indigo-900 dark:border-indigo-700">
+                    <tr>
+                        <th
+                            class="text-left px-6 py-3 text-indigo-900 font-semibold uppercase tracking-wide dark:text-indigo-300">
+                            Título</th>
+                        <th
+                            class="text-left px-6 py-3 text-indigo-900 font-semibold uppercase tracking-wide dark:text-indigo-300">
+                            Descripción</th>
+                        <th
+                            class="text-left px-6 py-3 text-indigo-900 font-semibold uppercase tracking-wide dark:text-indigo-300">
+                            Fecha Vencimiento</th>
+                        <th
+                            class="text-center px-6 py-3 text-indigo-900 font-semibold uppercase tracking-wide dark:text-indigo-300">
+                            Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let tarea of tareas"
+                        class="hover:bg-indigo-50 dark:hover:bg-indigo-700 transition-colors duration-200">
+                        <td
+                            class="px-6 py-4 border-b border-indigo-300 dark:border-indigo-700 text-indigo-900 dark:text-indigo-200">
+                            {{ tarea.titulo }}</td>
+                        <td
+                            class="px-6 py-4 border-b border-indigo-300 dark:border-indigo-700 text-indigo-800 dark:text-indigo-300">
+                            {{ tarea.descripcion }}</td>
+                        <td
+                            class="px-6 py-4 border-b border-indigo-300 dark:border-indigo-700 text-indigo-800 dark:text-indigo-300">
+                            {{ tarea.fechaVencimiento | date:'shortDate' }}</td>
+                        <td class="px-6 py-4 border-b border-indigo-300 dark:border-indigo-700 text-center space-x-3">
+                            <button (click)="eliminarTarea(tarea.id)"
+                                class="bg-red-600 hover:bg-red-700 text-white font-semibold px-3 py-1 rounded shadow-sm transition">
+                                Eliminar
+                            </button>
+                            <button [routerLink]="['/tareas', tarea.id]"
+                                class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-3 py-1 rounded shadow-sm transition">
+                                Editar
+                            </button>
+                            <button [routerLink]="['/detalle-tarea', tarea.id]"
+                                class="bg-green-600 hover:bg-green-700 text-white font-semibold px-3 py-1 rounded shadow-sm transition">
+                                Ver Detalles
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
